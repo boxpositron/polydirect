@@ -3,37 +3,37 @@ from scripts.traffic_engine import TrafficController, TrafficLight
 lane_config = {
     'traffic-0': {
         'lights': {
-            'pin-red': 1,
-            'pin-orange': 2,
-            'pin-green': 3
+            'pin-red': 2,
+            'pin-orange': 3,
+            'pin-green': 4
         },
         'sensors': {
-            'sensor-pin-1': 4,
-            'sensor-pin-2': 5,
-            'sensor-pin-3': 6
+            'sensor-pin-1': 17,
+            'sensor-pin-2':27,
+            'sensor-pin-3': 22
         }
     },
     'traffic-1': {
         'lights': {
-            'pin-red': 7,
-            'pin-orange': 8,
-            'pin-green': 9
+            'pin-red': 10,
+            'pin-orange': 9,
+            'pin-green': 11
         },
         'sensors': {
-            'sensor-pin-1': 10,
-            'sensor-pin-2': 11,
-            'sensor-pin-3': 12
+            'sensor-pin-1': 5,
+            'sensor-pin-2': 6,
+            'sensor-pin-3': 13
         }
     },
     'traffic-2': {
         'lights': {
-            'pin-red': 13,
-            'pin-orange': 14,
-            'pin-green': 15
+            'pin-red': 19,
+            'pin-orange': 26,
+            'pin-green': 14
         },
         'sensors': {
-            'sensor-pin-1': 16,
-            'sensor-pin-2': 17,
+            'sensor-pin-1': 15,
+            'sensor-pin-2': 16,
             'sensor-pin-3': 18
         }
     }
@@ -91,7 +91,7 @@ class Main(object):
             while True:
                 self.logicController()
         except Exception as e:
-            print("Error: An error occured\n{0}".format(e))
+            print("Error: An error occured in the main loop\n{0}".format(e))
         except KeyboardInterrupt:
             print("Exit: Application is exiting")
 

@@ -3,8 +3,8 @@ import threading
 try:
     import RPi.GPIO as gpio
     print ("Using GPIO version: {0}".format(gpio.VERSION))
-    gpio.setmode(gpio.BOARD)
-    print("Setting GPIO mode to BOARD")
+    gpio.setmode(gpio.BCM)
+    print("Setting GPIO mode to BCM")
 except Exception as e:
     print ("Error: GPIO is unavailable")
     raise SystemExit
@@ -23,17 +23,16 @@ class TrafficController(object):
 
         self.priority = 0
 
-        super(TrafficController, self).__init__(**kwargs)
 
     def checkPriority(self):
-        __checkSensor()
+        self.__checkSensor()
         return self.priority
 
     def __checkSensor(self):
         sensorList = [self.sensor_pin_1, self.sensor_pin_2, self.sensor_pin_3]
         count = 0
         for sensor in sensorList:
-            value = gpio.INPUT(sensor)
+            value = True#gpio.INPUT(sensor)
             if value:
                 count += 1
 
@@ -53,7 +52,7 @@ class TrafficLight(object):
 
         self.resetState()  # make sure all the lights are red
 
-        super(TrafficLight, self).__init__(**kwargs)
+      
 
     def resetState(self):
         self.state = False
