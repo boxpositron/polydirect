@@ -32,8 +32,8 @@ class TrafficController(object):
         sensorList = [self.sensor_pin_1, self.sensor_pin_2, self.sensor_pin_3]
         count = 0
         for sensor in sensorList:
-            value = True#gpio.INPUT(sensor)
-            if value:
+            value = gpio.input(sensor)#gpio.INPUT(sensor)
+            if not value:
                 count += 1
 
             self.priority = count
@@ -52,7 +52,7 @@ class TrafficLight(object):
 
         self.resetState()  # make sure all the lights are red
 
-      
+
 
     def resetState(self):
         self.state = False
