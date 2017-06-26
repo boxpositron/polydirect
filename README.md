@@ -1,2 +1,3 @@
 # polydirect
-Traffic Light Control System for Tantua
+
+Python based traffic light control system.
